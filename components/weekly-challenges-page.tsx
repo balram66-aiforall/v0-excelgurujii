@@ -72,7 +72,7 @@ export default function WeeklyChallengesPage() {
   }
 
   return (
-    <div className="h-full overflow-y-auto bg-gradient-to-br from-background via-background to-secondary/20">
+    <div className="h-full overflow-y-auto bg-gradient-to-br from-background via-background to-secondary/20 pb-24">
       {/* Header */}
       <div className="bg-gradient-to-r from-accent to-primary text-accent-foreground pt-8 pb-6 px-4">
         <div className="max-w-4xl mx-auto">

@@ -60,7 +60,7 @@ const FloatingFormulas = () => {
 
 export default function HomePage({ onNavigate }: HomePageProps) {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col pb-24">
+    <div className="relative h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex flex-col pb-24">
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-emerald-400/10 rounded-full blur-3xl animate-pulse delay-2000" />
