@@ -92,8 +92,9 @@ export default function HomePage({ onNavigate }: HomePageProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-24 right-4 text-xs text-white/60 pointer-events-none font-medium">
-        Built through AI for All
+      <div className="absolute bottom-24 right-4 flex items-center gap-2 pointer-events-none">
+        <img src="/balram.png" alt="Balram R" className="w-8 h-8 rounded-full object-cover" />
+        <span className="text-xs text-white/60 font-medium">Balram R</span>
       </div>
     </div>
   )

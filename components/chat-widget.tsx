@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Send, MessageCircle } from "lucide-react"
 import { useExcelGuruAI } from "@/hooks/use-excel-guru-ai"
 
@@ -147,13 +147,12 @@ export default function ChatWidget() {
       </div>
 
       <div className="flex gap-2 border-t border-white/10 pt-3 flex-shrink-0">
-        <Input
+        <Textarea
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSendMessage()}
           placeholder="Ask Guruji anything about Excel…"
           disabled={isLoading}
-          className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-emerald-400/50 focus:bg-white/20 rounded-xl transition-all duration-200"
+          className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-emerald-400/50 focus:bg-white/20 rounded-xl transition-all duration-200 resize-none min-h-[50px] max-h-[120px]"
         />
         <Button
           onClick={handleSendMessage}
