@@ -87,23 +87,29 @@ export default function HomePage({ onNavigate }: HomePageProps) {
           </div>
         </div>
 
-        <div className="flex-1 min-h-0 w-full flex flex-col">
+        <div className="flex-1 min-h-0 w-full flex flex-col mb-4">
           <ChatWidget />
         </div>
-      </div>
 
-      <a
-        href="https://www.linkedin.com/in/balram-r-266586116/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute bottom-24 right-4 flex items-center gap-3 transition-opacity hover:opacity-80 z-20"
-      >
-        <img src="/balram.png" alt="Balram R" className="w-10 h-10 rounded-full object-cover border border-white/10" />
-        <div className="flex flex-col items-start">
-          <span className="text-sm text-white font-medium leading-none">Balram R</span>
-          <span className="text-[10px] text-emerald-400 font-medium mt-1">AI For All</span>
+        <div className="flex justify-end w-full">
+          <a
+            href="https://www.linkedin.com/in/balram-r-266586116/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 transition-opacity hover:opacity-80"
+          >
+            <img
+              src="/balram.png"
+              alt="Balram R"
+              className="w-10 h-10 rounded-full object-cover border border-white/10"
+            />
+            <div className="flex flex-col items-start">
+              <span className="text-sm text-white font-medium leading-none">Balram R</span>
+              <span className="text-[10px] text-emerald-400 font-medium mt-1">AI For All</span>
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
   )
 }
