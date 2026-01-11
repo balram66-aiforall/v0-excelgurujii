@@ -100,7 +100,7 @@ export default function ChatWidget() {
         <span className="text-xl">💬</span>
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto mb-3 pr-2 space-y-3" ref={messagesContainerRef}>
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain mb-3 pr-2 space-y-3" ref={messagesContainerRef}>
         {messages.map((message, idx) => (
           <div
             key={message.id}
