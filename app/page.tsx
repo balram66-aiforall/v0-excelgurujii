@@ -24,7 +24,7 @@ export default function Page() {
 
   return (
     <div className="h-[100dvh] overflow-hidden bg-background flex flex-col">
-      <main className="flex-1 relative overflow-hidden">{renderPage()}</main>
+      <main className="flex-1 relative overflow-hidden min-h-0">{renderPage()}</main>
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
     </div>
   )

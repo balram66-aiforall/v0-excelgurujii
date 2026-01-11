@@ -69,8 +69,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       <FloatingFormulas />
 
-      <div className="relative z-10 flex-1 flex flex-col max-w-5xl mx-auto w-full px-4 py-6">
-        <div className="relative flex items-center justify-center mb-6 animate-fade-in gap-8 flex-shrink-0">
+      <div className="relative z-10 flex-1 min-h-0 flex flex-col max-w-5xl mx-auto w-full px-4 py-6">
+        <div className="relative flex flex-col md:flex-row items-center justify-center mb-6 animate-fade-in gap-4 md:gap-8 flex-shrink-0">
           <div className="absolute top-0 right-0">
             <a
               href="https://www.linkedin.com/in/balram-r-266586116/"
@@ -98,8 +98,8 @@ export default function HomePage({ onNavigate }: HomePageProps) {
             />
           </div>
 
-          <div className="text-left flex-1 mt-8 md:mt-0">
-            <h1 className="text-4xl md:text-5xl font-black text-white text-left tracking-wider mb-2">EXCEL GURUJI</h1>
+          <div className="text-center md:text-left flex-1 mt-4 md:mt-0">
+            <h1 className="text-4xl md:text-5xl font-black text-white tracking-wider mb-2">EXCEL GURUJI</h1>
             <p className="text-base md:text-lg text-emerald-300 font-semibold">
               Your friendly Excel mentor for complete beginners.
             </p>

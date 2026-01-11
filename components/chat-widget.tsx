@@ -90,7 +90,7 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="glass-card p-4 flex flex-col h-full w-full animate-fade-in">
+    <div className="glass-card p-4 flex flex-col h-full w-full animate-fade-in overflow-hidden">
       <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10 flex-shrink-0">
         <MessageCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
         <div className="flex-1">
