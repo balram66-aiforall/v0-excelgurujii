@@ -69,25 +69,25 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       <FloatingFormulas />
 
-      <div className="relative z-10 flex-1 min-h-0 flex flex-col max-w-5xl mx-auto w-full px-4 py-6">
-        <div className="relative flex flex-col md:flex-row items-center justify-center mb-6 animate-fade-in gap-4 md:gap-8 flex-shrink-0">
+      <div className="relative z-10 flex-1 min-h-0 flex flex-col max-w-5xl mx-auto w-full px-4 py-2 md:py-6">
+        <div className="relative flex flex-row items-center justify-center md:justify-center mb-2 md:mb-6 animate-fade-in gap-4 md:gap-8 flex-shrink-0">
           <div className="flex-shrink-0">
             <img
               src="/images/e0316726-75da-482d-8e90.jpeg"
               alt="Excel Guruji"
-              className="w-40 h-40 md:w-48 md:h-48 object-contain drop-shadow-2xl"
+              className="w-16 h-16 md:w-48 md:h-48 object-contain drop-shadow-2xl"
             />
           </div>
 
-          <div className="text-center md:text-left flex-1 mt-4 md:mt-0">
-            <h1 className="text-4xl md:text-5xl font-black text-white tracking-wider mb-2">EXCEL GURUJI</h1>
-            <p className="text-base md:text-lg text-emerald-300 font-semibold">
+          <div className="text-left flex-1 mt-0 md:mt-0">
+            <h1 className="text-2xl md:text-5xl font-black text-white tracking-wider mb-0 md:mb-2">EXCEL GURUJI</h1>
+            <p className="text-xs md:text-lg text-emerald-300 font-semibold leading-tight">
               Your friendly Excel mentor for complete beginners.
             </p>
           </div>
         </div>
 
-        <div className="flex-1 min-h-0 w-full flex flex-col mb-4">
+        <div className="flex-1 min-h-0 w-full flex flex-col mb-2 md:mb-4">
           <ChatWidget />
         </div>
       </div>
