@@ -23,8 +23,8 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      <main className="flex-1 overflow-auto pb-20">{renderPage()}</main>
+    <div className="h-[100dvh] overflow-hidden bg-background flex flex-col">
+      <main className="flex-1 relative overflow-hidden min-h-0">{renderPage()}</main>
       <Navigation currentPage={currentPage} onNavigate={setCurrentPage} />
     </div>
   )

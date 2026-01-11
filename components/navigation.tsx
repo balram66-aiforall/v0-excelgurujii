@@ -24,8 +24,8 @@ export default function Navigation({ currentPage, onNavigate, user, onLogout }: 
   return (
     /* Fixed navigation with proper z-index and pointer-events to ensure buttons are clickable */
     <nav className="fixed bottom-0 left-0 right-0 backdrop-blur-xl bg-black/40 border-t border-white/10 z-50 pointer-events-auto">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
-        <div className="flex items-center justify-around flex-1">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-center md:justify-between h-auto md:h-20 py-2 md:py-0 gap-2">
+        <div className="flex items-center justify-around w-full md:w-auto md:flex-1 md:justify-around max-w-sm">
           {navItems.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -40,6 +40,23 @@ export default function Navigation({ currentPage, onNavigate, user, onLogout }: 
               <span className="text-xs font-semibold">{label}</span>
             </button>
           ))}
+        </div>
+
+        <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/5 md:ml-4">
+          <span className="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Built by</span>
+          <a
+            href="https://www.linkedin.com/in/balram-r-266586116/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="/balram.png"
+              alt="Balram R"
+              className="w-6 h-6 rounded-full object-cover border border-white/10"
+            />
+            <span className="text-xs text-white font-medium">Balram R</span>
+          </a>
         </div>
       </div>
     </nav>

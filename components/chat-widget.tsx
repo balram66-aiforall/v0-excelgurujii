@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import { Send, MessageCircle } from "lucide-react"
 import { useExcelGuruAI } from "@/hooks/use-excel-guru-ai"
 
@@ -90,7 +90,7 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="glass-card p-4 flex flex-col h-full w-full animate-fade-in">
+    <div className="glass-card p-4 flex flex-col h-full w-full animate-fade-in overflow-hidden">
       <div className="flex items-center gap-2 mb-4 pb-3 border-b border-white/10 flex-shrink-0">
         <MessageCircle className="w-5 h-5 text-emerald-400 flex-shrink-0" />
         <div className="flex-1">
@@ -100,7 +100,7 @@ export default function ChatWidget() {
         <span className="text-xl">💬</span>
       </div>
 
-      <div className="flex-1 min-h-0 overflow-y-auto mb-3 pr-2 space-y-3" ref={messagesContainerRef}>
+      <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain mb-4 pr-2 pb-6 space-y-3" ref={messagesContainerRef}>
         {messages.map((message, idx) => (
           <div
             key={message.id}
@@ -147,13 +147,12 @@ export default function ChatWidget() {
       </div>
 
       <div className="flex gap-2 border-t border-white/10 pt-3 flex-shrink-0">
-        <Input
+        <Textarea
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyPress={(e) => e.key === "Enter" && !isLoading && handleSendMessage()}
           placeholder="Ask Guruji anything about Excel…"
           disabled={isLoading}
-          className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-emerald-400/50 focus:bg-white/20 rounded-xl transition-all duration-200"
+          className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 focus:border-emerald-400/50 focus:bg-white/20 rounded-xl transition-all duration-200 resize-none min-h-[50px] max-h-[120px]"
         />
         <Button
           onClick={handleSendMessage}
