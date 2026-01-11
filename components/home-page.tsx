@@ -71,25 +71,6 @@ export default function HomePage({ onNavigate }: HomePageProps) {
 
       <div className="relative z-10 flex-1 min-h-0 flex flex-col max-w-5xl mx-auto w-full px-4 py-6">
         <div className="relative flex flex-col md:flex-row items-center justify-center mb-6 animate-fade-in gap-4 md:gap-8 flex-shrink-0">
-          <div className="absolute top-0 right-0">
-            <a
-              href="https://www.linkedin.com/in/balram-r-266586116/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 transition-opacity hover:opacity-80 bg-black/20 backdrop-blur-sm rounded-full p-1 pr-3 border border-white/5"
-            >
-              <img
-                src="/balram.png"
-                alt="Balram R"
-                className="w-8 h-8 rounded-full object-cover border border-white/10"
-              />
-              <div className="flex flex-col items-start">
-                <span className="text-xs text-white font-medium leading-none">Balram R</span>
-                <span className="text-[9px] text-emerald-400 font-medium mt-0.5">AI For All</span>
-              </div>
-            </a>
-          </div>
-
           <div className="flex-shrink-0">
             <img
               src="/images/e0316726-75da-482d-8e90.jpeg"
