@@ -2,7 +2,6 @@
 
 import type React from "react"
 import { useState } from "react"
-import { signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -14,35 +13,28 @@ export default function AuthPage({ onAuthSuccess }: { onAuthSuccess: (user: any)
   const [password, setPassword] = useState("")
   const [name, setName] = useState("")
   const [isAuthenticating, setIsAuthenticating] = useState(false)
-  const [error, setError] = useState("")
 
   const handleEmailAuth = (e: React.FormEvent) => {
     e.preventDefault()
-    // For now, email auth is a demo. In production, you'd implement proper backend auth.
+    if (!email) return
+    
     onAuthSuccess({
       name: name || email.split("@")[0],
       email,
     })
   }
 
-  const handleGoogleAuth = async () => {
+  const handleGoogleAuth = () => {
     setIsAuthenticating(true)
-    setError("")
-    try {
-      // Try real Google auth first
-      await signIn("google", { redirect: true, callbackUrl: "/" })
-    } catch (err) {
-      // Fallback to demo mode
-      console.log("Google auth not configured, using demo mode")
-      setTimeout(() => {
-        onAuthSuccess({
-          name: "Excel Learner",
-          email: "learner@demo.example.com",
-          avatar: "https://via.placeholder.com/40",
-        })
-        setIsAuthenticating(false)
-      }, 800)
-    }
+    // Demo mode - simulate Google login
+    setTimeout(() => {
+      onAuthSuccess({
+        name: "Excel Learner",
+        email: "learner@example.com",
+        avatar: "https://via.placeholder.com/40",
+      })
+      setIsAuthenticating(false)
+    }, 800)
   }
 
   return (
@@ -60,13 +52,8 @@ export default function AuthPage({ onAuthSuccess }: { onAuthSuccess: (user: any)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {error && (
-            <div className="bg-red-500/20 border border-red-500/50 text-red-200 px-4 py-2 rounded-lg text-sm">
-              {error}
-            </div>
-          )}
-          <div className="bg-blue-500/20 border border-blue-500/50 text-blue-200 px-4 py-2 rounded-lg text-sm">
-            Demo mode active. For real Google Sign-In, set environment variables (see /NEXTAUTH_SETUP.md).
+          <div className="bg-emerald-500/20 border border-emerald-500/50 text-emerald-200 px-4 py-2 rounded-lg text-sm">
+            Demo mode: Enter any email to get started. Google Sign-In coming soon!
           </div>
           {/* Email Form */}
           <form onSubmit={handleEmailAuth} className="space-y-4">
