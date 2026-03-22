@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSession, signOut } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import HomePage from "@/components/home-page"
 import DailyLessonPage from "@/components/daily-lesson-page"
 import WeeklyChallengesPage from "@/components/weekly-challenges-page"
@@ -11,9 +11,10 @@ import AuthPage from "@/components/auth-page"
 type PageType = "home" | "lesson" | "challenges"
 
 export default function Page() {
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const [currentPage, setCurrentPage] = useState<PageType>("home")
   const [user, setUser] = useState<any>(null)
+  const [isReady, setIsReady] = useState(false)
 
   // If session exists, use it. Otherwise, check for local user state
   useEffect(() => {
@@ -24,23 +25,13 @@ export default function Page() {
         avatar: session.user.image,
       })
     }
+    // Mark as ready after checking session (whether authenticated or not)
+    setIsReady(true)
   }, [session])
 
   // Show auth page if not authenticated
-  if (status === "unauthenticated" && !user) {
+  if (!user && isReady) {
     return <AuthPage onAuthSuccess={setUser} />
-  }
-
-  // Show loading state while checking session
-  if (status === "loading") {
-    return (
-      <div className="h-[100dvh] flex items-center justify-center bg-background">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-emerald-500 mx-auto"></div>
-          <p className="mt-4 text-slate-400">Loading...</p>
-        </div>
-      </div>
-    )
   }
 
   const renderPage = () => {
