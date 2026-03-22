@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { signIn } from "next-auth/react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,45 +14,27 @@ export default function AuthPage({ onAuthSuccess }: { onAuthSuccess: (user: any)
   const [password, setPassword] = useState("")
   const [name, setName] = useState("")
   const [isAuthenticating, setIsAuthenticating] = useState(false)
-
-  useEffect(() => {
-    // Check for OAuth redirect parameters
-    const params = new URLSearchParams(window.location.search)
-    const googleUser = params.get("google_user")
-
-    if (googleUser) {
-      try {
-        const userData = JSON.parse(decodeURIComponent(googleUser))
-        onAuthSuccess({
-          name: userData.name || userData.email.split("@")[0],
-          email: userData.email,
-          avatar: userData.picture,
-        })
-      } catch (error) {
-        console.error("Error parsing Google user:", error)
-      }
-    }
-  }, [onAuthSuccess])
+  const [error, setError] = useState("")
 
   const handleEmailAuth = (e: React.FormEvent) => {
     e.preventDefault()
+    // For now, email auth is a demo. In production, you'd implement proper backend auth.
     onAuthSuccess({
       name: name || email.split("@")[0],
       email,
     })
   }
 
-  const handleGoogleAuth = () => {
+  const handleGoogleAuth = async () => {
     setIsAuthenticating(true)
-    // For demo purposes, we're simulating a successful Google login
-    setTimeout(() => {
-      onAuthSuccess({
-        name: "Excel Learner",
-        email: "learner@example.com",
-        avatar: "https://via.placeholder.com/40",
-      })
+    setError("")
+    try {
+      await signIn("google", { redirect: true, callbackUrl: "/" })
+    } catch (err) {
+      setError("Failed to sign in with Google")
+      console.error("Google sign-in error:", err)
       setIsAuthenticating(false)
-    }, 800)
+    }
   }
 
   return (
@@ -69,6 +52,11 @@ export default function AuthPage({ onAuthSuccess }: { onAuthSuccess: (user: any)
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
+          {error && (
+            <div className="bg-red-500/20 border border-red-500/50 text-red-200 px-4 py-2 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
           {/* Email Form */}
           <form onSubmit={handleEmailAuth} className="space-y-4">
             {!isLogin && (
